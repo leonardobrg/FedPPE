@@ -1,0 +1,4 @@
+C:/Users/leo-computador/SimplicityStudio/v6_workspace/tcc_001/cmake_gcc/build/CMakeFiles/slc.dir
+C:/Users/leo-computador/SimplicityStudio/v6_workspace/tcc_001/cmake_gcc/build/CMakeFiles/aiml_soc_magic_wand_baremetal.dir
+C:/Users/leo-computador/SimplicityStudio/v6_workspace/tcc_001/cmake_gcc/build/CMakeFiles/edit_cache.dir
+C:/Users/leo-computador/SimplicityStudio/v6_workspace/tcc_001/cmake_gcc/build/CMakeFiles/rebuild_cache.dir

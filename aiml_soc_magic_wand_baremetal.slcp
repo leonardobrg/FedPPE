@@ -1,0 +1,176 @@
+# Silicon Labs Project Configuration Tools: slcp, v0, Component selection file.
+project_name: aiml_soc_magic_wand_baremetal
+label: aiml_soc_magic_wand_baremetal
+description: |
+  This application demonstrates a model trained to recognize various hand gestures with an accelerometer. The detected gestures are printed to the serial port.
+category: AI/ML Application
+filter:
+- name: Capability
+  value:
+  - Machine Learning
+- name: Device Type
+  value:
+  - SoC
+- name: MCU
+  value:
+  - 32-bit MCU
+- name: Project Difficulty
+  value:
+  - Advanced
+package: aiml_app
+quality: production
+readme:
+- path: readme.md
+source:
+- path: app.c
+- path: magic_wand.cc
+- path: accelerometer.cc
+- path: predictor.cc
+tag:
+- hardware:component:led:2+
+- hwfilter:device:device_supports_bluetooth
+- hardware:device:flash:100
+- hardware:component:imu
+- hardware:device:ram:40
+include:
+- path: .
+  file_list:
+  - path: app.h
+  - path: magic_wand.h
+  - path: accelerometer.h
+  - path: constants.h
+  - path: predictor.h
+sdk:
+  vendor: silabs
+  id: simplicity_sdk
+  version: 2025.12.2
+toolchain_settings:
+- value: -Wno-unused-parameter
+  option: gcc_compiler_option
+- value: -Wno-missing-field-initializers
+  option: gcc_compiler_option
+- value: -u _printf_float
+  option: gcc_linker_option
+component:
+- package: aiml
+  vendor: silabs
+  id: tensorflow_debug_log_iostream
+- package: aiml
+  vendor: silabs
+  id: tensorflow_lite_micro
+- package: aiml
+  vendor: silabs
+  id: tensorflow_lite_micro_accelerated_kernels
+- package: aiml
+  vendor: silabs
+  id: tensorflow_lite_micro_optimized_kernels
+- package: simplicity_sdk
+  vendor: silabs
+  id: EFR32MG24B310F1536IM48
+- package: simplicity_sdk
+  vendor: silabs
+  id: bluetooth_feature_connection_role_peripheral
+- package: simplicity_sdk
+  vendor: silabs
+  id: bluetooth_feature_gatt
+- package: simplicity_sdk
+  vendor: silabs
+  id: bluetooth_feature_gatt_server
+- package: simplicity_sdk
+  vendor: silabs
+  id: bluetooth_feature_legacy_advertiser
+- package: simplicity_sdk
+  vendor: silabs
+  id: bluetooth_feature_system
+- package: simplicity_sdk
+  vendor: silabs
+  id: bluetooth_stack
+- package: simplicity_sdk
+  vendor: silabs
+  id: brd2601b
+- package: simplicity_sdk
+  vendor: silabs
+  id: clock_manager
+- package: simplicity_sdk
+  vendor: silabs
+  id: component_catalog
+- package: simplicity_sdk
+  vendor: silabs
+  id: device_init
+- package: simplicity_sdk
+  vendor: silabs
+  id: gatt_configuration
+- package: simplicity_sdk
+  vendor: silabs
+  id: gpio
+- package: simplicity_sdk
+  instance:
+  - sensor
+  vendor: silabs
+  id: i2cspm
+- package: simplicity_sdk
+  vendor: silabs
+  id: imu_driver
+- package: simplicity_sdk
+  vendor: silabs
+  id: iostream_recommended_stream
+- package: simplicity_sdk
+  vendor: silabs
+  id: iostream_retarget_stdio
+- package: simplicity_sdk
+  vendor: silabs
+  id: memory_manager
+- package: simplicity_sdk
+  vendor: silabs
+  id: si7210_driver
+- package: simplicity_sdk
+  instance:
+  - led0
+  - led1
+  vendor: silabs
+  id: simple_led
+- package: simplicity_sdk
+  vendor: silabs
+  id: sl_main
+- package: simplicity_sdk
+  vendor: silabs
+  id: sleeptimer
+define:
+- name: DEBUG_EFM
+- name: TF_LITE_STATIC_MEMORY
+config_file:
+- path: config/tflite/magic_wand_model.tflite
+  directory: tflite
+- path: config/btconf/gatt_configuration.btconf
+  override:
+    component: gatt_configuration
+    file_id: gatt_configuration_file_id
+  directory: btconf
+configuration:
+- name: SL_BOARD_ENABLE_VCOM
+  value: '1'
+- name: SL_BOARD_ENABLE_SENSOR_IMU
+  value: '1'
+- name: SL_BOARD_ENABLE_SENSOR_HALL
+  value: '1'
+- condition:
+  - iostream_usart
+  name: SL_IOSTREAM_USART_VCOM_CONVERT_BY_DEFAULT_LF_TO_CRLF
+  value: '1'
+- condition:
+  - iostream_uart
+  name: SL_IOSTREAM_UART_VCOM_CONVERT_BY_DEFAULT_LF_TO_CRLF
+  value: '1'
+- name: SL_HEAP_SIZE
+  value: '12288'
+- name: SL_TFLITE_MICRO_ARENA_SIZE
+  value: '8192'
+ui_hints:
+  highlight:
+  - path: readme.md
+    focus: true
+sdk_extension:
+- vendor: silabs
+  id: aiml
+  version: 2.2.1
+

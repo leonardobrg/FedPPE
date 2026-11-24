@@ -1,0 +1,199 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [7 0 R 9 0 R 11 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier /Encoding /WinAnsiEncoding >>
+endobj
+6 0 obj
+<< /Length 5718 >>
+stream
+q 0.07 0.16 0.29 rg 0 790 595 52 re f Q
+q 0.02 0.55 0.72 rg 0 786 595 4 re f Q
+BT /F2 10 Tf 1 0 0 1 52 814 Tm (TCC 001  |  GUIA DE TESTE) Tj ET
+0.07 0.25 0.43 rg BT /F2 14 Tf 1 0 0 1 52 761.0 Tm (BLE e aprendizado federado) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 738.3 Tm (Guia pr\341tico para testar a comunica\347\343o entre o PC e o MCU, executar o eco BLE e validar uma) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 724.4 Tm (rodada FedAvg no projeto TCC 001.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 706.5 Tm (O teste de eco confirma a troca de dados BLE. O teste FedAvg confirma o envio da cabe\347a, o treino) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 692.5 Tm (local em cada MCU e a agrega\347\343o no PC. Eles verificam coisas diferentes.) Tj ET
+0.07 0.25 0.43 rg BT /F2 14 Tf 1 0 0 1 52 669.6 Tm (1. O que voc\352 vai precisar) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 646.9 Tm (- Um kit MCU com o firmware TCC 001 atualizado, ligado e com o sensor IMU funcionando.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 631.0 Tm (- Um adaptador Bluetooth Low Energy que o Windows reconhe\347a como adaptador BLE. Um dongle que) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 617.1 Tm (     s\363 funciona como porta serial pode n\343o servir para este teste.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 601.2 Tm (- Python acess\355vel pelo comando py, e conex\343o \340 internet na primeira instala\347\343o da biblioteca) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 587.3 Tm (     Bleak.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 571.4 Tm (- O arquivo fedppe_mlp.json, inclu\355do no projeto, para inicializar/carregar a cabe\347a global.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 555.4 Tm (- Para testar a agrega\347\343o entre participantes, use pelo menos dois MCUs com firmware/backbone) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 541.5 Tm (     compat\355veis. Um MCU testa o fluxo, mas n\343o demonstra m\351dia entre clientes distintos.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 525.6 Tm (- Para FedAvg, prepare-se para posicionar cada MCU nos tr\352s estados, conforme solicitado:) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 511.7 Tm (     parado, carregando e vestindo.) Tj ET
+0.07 0.25 0.43 rg BT /F2 14 Tf 1 0 0 1 52 490.8 Tm (2. Preparar e gravar o firmware BLE) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 468.1 Tm (Se o firmware BLE j\341 foi gravado e o MCU anuncia TCC001-BLE, pule para a se\347\343o 3. Caso contr\341rio,) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 454.2 Tm (abra o projeto aiml_soc_magic_wand_baremetal.slcp no Simplicity Studio 6. Salve/regere o projeto) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 440.2 Tm (se a configura\347\343o BLE/GATT tiver sido alterada, fa\347a o build e grave a imagem no kit conectado.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 422.3 Tm (A imagem compilada presente neste workspace \351 cmake_gcc\\build\\base\\tcc_001.hex. Confirme que est\341) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 408.4 Tm (gravando o build atualizado, n\343o uma imagem antiga. Depois de iniciar o firmware, o MCU deve) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 394.5 Tm (anunciar o nome TCC001-BLE.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 376.6 Tm (Se o backbone do modelo tiver sido alterado, exporte-o novamente, regenere/compile e regrave o) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 362.7 Tm (firmware. O host verifica uma impress\343o digital do backbone; uma diverg\352ncia interrompe o FedAvg) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 348.8 Tm (para evitar combinar modelos incompat\355veis.) Tj ET
+0.07 0.25 0.43 rg BT /F2 14 Tf 1 0 0 1 52 325.9 Tm (3. Instalar a depend\352ncia BLE no PC) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 303.1 Tm (Abra PowerShell na pasta do projeto \(a pasta que cont\351m fedppe_pc.py e fedppe_ble_test.py\) e) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 289.2 Tm (instale Bleak:) Tj ET
+q 0.94 0.96 0.98 rg 47 256.3199999999998 501 22 re f Q
+0.12 0.16 0.21 rg BT /F3 8.2 Tf 1 0 0 1 52 271.3 Tm (py -m pip install bleak) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 251.2 Tm (Opcionalmente, confira os argumentos dispon\355veis:) Tj ET
+q 0.94 0.96 0.98 rg 47 206.2719999999998 501 34 re f Q
+0.12 0.16 0.21 rg BT /F3 8.2 Tf 1 0 0 1 52 233.3 Tm (py fedppe_ble_test.py --help) Tj ET
+0.12 0.16 0.21 rg BT /F3 8.2 Tf 1 0 0 1 52 221.1 Tm (py fedppe_pc.py ble-fedavg --help) Tj ET
+0.07 0.25 0.43 rg BT /F2 14 Tf 1 0 0 1 52 196.0 Tm (4. Teste b\341sico: eco BLE) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 173.3 Tm (Com o MCU ligado e anunciando, execute:) Tj ET
+q 0.94 0.96 0.98 rg 47 140.3679999999998 501 22 re f Q
+0.12 0.16 0.21 rg BT /F3 8.2 Tf 1 0 0 1 52 155.4 Tm (py fedppe_ble_test.py) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 135.2 Tm (O script procura um dispositivo chamado TCC001-BLE, conecta-se, escreve a mensagem ping-tcc001 e) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 121.3 Tm (aguarda o MCU devolver exatamente os mesmos bytes por notifica\347\343o.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 103.4 Tm (Resultado esperado: uma linha iniciada por PASS, informando que o MCU recebeu e devolveu a) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 89.5 Tm (mensagem. Isso confirma conex\343o, escrita GATT e notifica\347\343o de retorno; ainda n\343o testa treino) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 75.6 Tm (nem FedAvg.) Tj ET
+q 0.82 0.86 0.90 RG 52 43 m 543 43 l S Q
+0.35 0.39 0.44 rg BT /F1 8 Tf 1 0 0 1 52 28 Tm (Guia de teste BLE + FedAvg  |  TCC 001) Tj ET
+0.35 0.39 0.44 rg BT /F1 8 Tf 1 0 0 1 520 28 Tm (1) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 6415 >>
+stream
+q 0.07 0.16 0.29 rg 0 790 595 52 re f Q
+q 0.02 0.55 0.72 rg 0 786 595 4 re f Q
+BT /F2 10 Tf 1 0 0 1 52 814 Tm (TCC 001  |  GUIA DE TESTE) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 766.0 Tm (Para escolher um dispositivo pelo endere\347o BLE ou mudar a mensagem:) Tj ET
+q 0.94 0.96 0.98 rg 47 733.088 501 22 re f Q
+0.12 0.16 0.21 rg BT /F3 8.2 Tf 1 0 0 1 52 748.1 Tm (py fedppe_ble_test.py --address AA:BB:CC:DD:EE:FF --message "teste 123") Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 728.0 Tm (- A mensagem deve ter de 1 a 20 bytes em UTF-8. O limite \351 em bytes, n\343o necessariamente em) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 714.0 Tm (     caracteres.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 698.1 Tm (- Se n\343o encontrar o MCU, confirme alimenta\347\343o, firmware/an\372ncio TCC001-BLE e adaptador BLE) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 684.2 Tm (     do Windows. Feche outro programa que esteja conectado ao mesmo MCU e tente novamente.) Tj ET
+0.07 0.25 0.43 rg BT /F2 14 Tf 1 0 0 1 52 663.3 Tm (5. Rodada FedAvg com um MCU) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 640.6 Tm (Execute primeiro com um MCU para validar ponta a ponta. Sem --addresses, o programa procura um) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 626.7 Tm (perif\351rico TCC001-BLE:) Tj ET
+q 0.94 0.96 0.98 rg 47 593.7599999999998 501 22 re f Q
+0.12 0.16 0.21 rg BT /F3 8.2 Tf 1 0 0 1 52 608.8 Tm (py fedppe_pc.py ble-fedavg --windows-per-class 10) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 588.6 Tm (O PC verifica protocolo, tamanho da cabe\347a e compatibilidade do backbone; envia a cabe\347a global;) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 574.7 Tm (solicita treino local nas tr\352s classes; recebe a cabe\347a local e agrega os resultados. Com o) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 560.8 Tm (padr\343o acima, o MCU processa 10 janelas por classe, totalizando 30 janelas nessa execu\347\343o.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 542.9 Tm (Quando o programa pedir, coloque o MCU no estado indicado e pressione Enter para come\347ar a coleta) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 529.0 Tm (daquela classe. Mantenha esse estado durante a coleta. Repita para parado, carregando e vestindo.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 515.1 Tm (Por padr\343o, os prompts s\363o parte do teste; n\343o use --no-prompt se precisar de tempo para) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 501.2 Tm (posicionar o equipamento.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 483.2 Tm (Cada janela re\372ne 32 leituras do IMU e gera uma atualiza\347\343o local da cabe\347a. O tempo nominal \351) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 469.3 Tm (cerca de 1,3 s por janela; 30 janelas levam aproximadamente 38 s por MCU, al\351m dos prompts e da) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 455.4 Tm (comunica\347\343o BLE.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 437.5 Tm (Ao concluir, o PC informa que a rodada terminou e salva a cabe\347a global em) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 423.6 Tm (fedppe_global_head.json. Com um \372nico MCU, a agrega\347\343o \351 igual \340 cabe\347a local desse MCU: \351 uma) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 409.7 Tm (valida\347\343o do fluxo, n\343o uma m\351dia federada entre participantes.) Tj ET
+0.07 0.25 0.43 rg BT /F2 14 Tf 1 0 0 1 52 386.8 Tm (6. Agrega\347\343o real com dois ou mais MCUs) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 364.0 Tm (Identifique os endere\347os BLE dos MCUs usando um scanner BLE. Em seguida, informe todos os) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 350.1 Tm (endere\347os na mesma execu\347\343o. Exemplo:) Tj ET
+q 0.94 0.96 0.98 rg 47 305.2239999999998 501 34 re f Q
+0.12 0.16 0.21 rg BT /F3 8.2 Tf 1 0 0 1 52 332.2 Tm (py fedppe_pc.py ble-fedavg --addresses AA:BB:CC:DD:EE:FF 11:22:33:44:55:66) Tj ET
+0.12 0.16 0.21 rg BT /F3 8.2 Tf 1 0 0 1 52 320.1 Tm (  --windows-per-class 10) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 300.0 Tm (O programa conecta-se aos MCUs sequencialmente: termina as tr\352s classes do primeiro, depois) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 286.0 Tm (atende o segundo, e s\363 ent\343o agrega. Coloque cada MCU no estado correto quando aparecer cada) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 272.1 Tm (prompt. Todos come\347am a rodada recebendo a mesma cabe\347a global inicial.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 254.2 Tm (Para cada par\342metro da cabe\347a, o PC calcula: global = soma\(n_k x par\342metro_local_k\) / soma\(n_k\),) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 240.3 Tm (onde n_k \351 o n\372mero de janelas usadas pelo MCU k. Com 10 janelas por classe, cada MCU tem 30; se) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 226.4 Tm (todos tiverem a mesma contagem, isso equivale \340 m\351dia simples das cabe\347as locais.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 208.5 Tm (A cabe\347a cont\351m 27 par\342metros: 24 pesos e 3 biases da camada final. O backbone de 404 par\342metros) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 194.6 Tm (permanece no firmware e n\343o \351 enviado. O c\363digo salva a cabe\347a agregada e a contagem de janelas) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 180.7 Tm (no arquivo de estado.) Tj ET
+0.07 0.25 0.43 rg BT /F2 14 Tf 1 0 0 1 52 157.7 Tm (7. O que observar e como repetir) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 135.0 Tm (- Durante a execu\347\343o, veja Cliente BLE 1/N, 2/N etc.; a indica\347\343o de coleta de cada classe; e) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 121.1 Tm (     a confirma\347\343o de conclus\343o da rodada.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 105.2 Tm (- A execu\347\343o s\363 agrega depois de receber a cabe\347a local de todos os MCUs informados. Se um) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 91.3 Tm (     MCU n\343o completar, a rodada n\343o deve ser considerada conclu\355da.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 75.4 Tm (- Uma execu\347\343o do comando ble-fedavg equivale a uma rodada. O programa n\343o repete rounds) Tj ET
+q 0.82 0.86 0.90 RG 52 43 m 543 43 l S Q
+0.35 0.39 0.44 rg BT /F1 8 Tf 1 0 0 1 52 28 Tm (Guia de teste BLE + FedAvg  |  TCC 001) Tj ET
+0.35 0.39 0.44 rg BT /F1 8 Tf 1 0 0 1 520 28 Tm (2) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Length 4358 >>
+stream
+q 0.07 0.16 0.29 rg 0 790 595 52 re f Q
+q 0.02 0.55 0.72 rg 0 786 595 4 re f Q
+BT /F2 10 Tf 1 0 0 1 52 814 Tm (TCC 001  |  GUIA DE TESTE) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 766.0 Tm (     automaticamente.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 750.1 Tm (- Ao executar novamente com o mesmo --state \(padr\343o fedppe_global_head.json\), o programa) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 736.2 Tm (     carrega o agregado anterior como cabe\347a global e o envia a todos os MCUs antes do treino) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 722.3 Tm (     seguinte.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 706.4 Tm (- Para come\347ar um teste independente sem sobrescrever o estado padr\343o, escolha outro arquivo) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 692.4 Tm (     de estado, por exemplo --state teste_inicial.json.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 676.5 Tm (- O script n\343o mede automaticamente acur\341cia em dados de valida\347\343o. Uma rodada conclu\355da) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 662.6 Tm (     demonstra o fluxo de comunica\347\343o, treino e agrega\347\343o, n\343o garante que o classificador) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 648.7 Tm (     esteja preciso.) Tj ET
+0.07 0.25 0.43 rg BT /F2 14 Tf 1 0 0 1 52 627.8 Tm (8. Problemas comuns) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 605.1 Tm (- "N\343o encontrei TCC001-BLE": confirme que o MCU est\341 anunciando, que o nome corresponde e) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 591.2 Tm (     que o Windows tem um adaptador BLE funcional. Aumente --scan-timeout se necess\363rio.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 575.2 Tm (- Falha ao conectar ou timeout: feche apps de scanner/terminal conectados ao MCU, aproxime o) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 561.3 Tm (     PC do kit, confirme que o endere\347o est\341 correto e tente de novo.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 545.4 Tm (- Erro de fingerprint/backbone: o modelo fedppe_mlp.json e o firmware foram gerados com) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 531.5 Tm (     backbones diferentes. Exporte o backbone correto, regenere, compile e regrave.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 515.6 Tm (- Depend\352ncia ausente: execute py -m pip install bleak usando o mesmo Python chamado pelo) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 501.7 Tm (     comando py.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 485.8 Tm (- Treino travou ou parou de contar janelas: verifique se o MCU est\341 ligado, se o IMU responde) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 471.9 Tm (     e se o firmware \351 o build FedPPE atualizado.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 456.0 Tm (- Resultado FedAvg de um cliente: comportamento esperado para um \372nico MCU. Informe dois ou) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 442.0 Tm (     mais endere\347os para combinar modelos locais de participantes distintos.) Tj ET
+0.07 0.25 0.43 rg BT /F2 14 Tf 1 0 0 1 52 421.1 Tm (9. Checklist de conclus\343o) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 398.4 Tm (- [ ] Firmware atualizado anuncia TCC001-BLE.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 382.5 Tm (- [ ] Teste de eco termina com PASS.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 366.6 Tm (- [ ] Cada MCU conclui treino nas tr\352s classes.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 350.7 Tm (- [ ] Dois ou mais MCUs foram usados para testar agrega\347\343o entre clientes.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 334.8 Tm (- [ ] O PC informa rodada conclu\355da e grava o arquivo de estado.) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 318.8 Tm (- [ ] A rodada seguinte carrega esse estado \(se desejado\).) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 302.9 Tm (Arquivos principais do teste: fedppe_ble_test.py \(eco BLE\), fedppe_pc.py \(coordena\347\343o FedAvg\),) Tj ET
+0.12 0.16 0.21 rg BT /F1 9.4 Tf 1 0 0 1 52 289.0 Tm (fedppe_mcu.c \(janelas e treino local\) e readme.md \(documenta\347\343o do projeto\).) Tj ET
+q 0.82 0.86 0.90 RG 52 43 m 543 43 l S Q
+0.35 0.39 0.44 rg BT /F1 8 Tf 1 0 0 1 52 28 Tm (Guia de teste BLE + FedAvg  |  TCC 001) Tj ET
+0.35 0.39 0.44 rg BT /F1 8 Tf 1 0 0 1 520 28 Tm (3) Tj ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 10 0 R >>
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000134 00000 n 
+0000000231 00000 n 
+0000000333 00000 n 
+0000000428 00000 n 
+0000006198 00000 n 
+0000006344 00000 n 
+0000012811 00000 n 
+0000012957 00000 n 
+0000017368 00000 n 
+trailer
+<< /Size 12 /Root 1 0 R >>
+startxref
+17516
+%%EOF

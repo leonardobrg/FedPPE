@@ -1,0 +1,5 @@
+2026-10-28 18:17:19,104 - root - DEBUG - Input directory: C:\Users\leo-computador\SimplicityStudio\v6_workspace\tcc_001\config\tflite
+2026-10-28 18:17:19,104 - root - DEBUG - Output directory: C:\Users\LEO-CO~1\AppData\Local\Temp\apack_aiml.mvp-compiler17710422214522799758\output
+2026-10-28 18:17:19,104 - root - DEBUG - Part Number: efr32mg24b310f1536im48
+2026-10-28 18:17:19,106 - root - DEBUG - Found tflite file: C:\Users\leo-computador\SimplicityStudio\v6_workspace\tcc_001\config\tflite\magic_wand_model.tflite
+2026-10-28 18:17:19,106 - root - DEBUG - Board platform selected: efr32
