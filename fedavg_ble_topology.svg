@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 850" role="img" aria-labelledby="title description">
+  <title id="title">Topologia BLE do aprendizado federado TCC 001</title>
+  <desc id="description">Um PC coordenador BLE conecta-se sequencialmente aos MCUs. Envia a cabeça global, cada MCU treina localmente e devolve sua cabeça e quantidade de janelas. O PC agrega os resultados após todos os clientes.</desc>
+  <defs>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2878b5"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#34845c"/>
+    </marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #18324b; }
+      .title { font-size: 30px; font-weight: 700; }
+      .subtitle { font-size: 17px; fill: #52677d; }
+      .card-title { font-size: 20px; font-weight: 700; }
+      .body { font-size: 16px; }
+      .small { font-size: 14px; fill: #52677d; }
+      .pc { fill: #eaf4fb; stroke: #4588b5; stroke-width: 2.5; }
+      .mcu { fill: #fffaf0; stroke: #c99a3b; stroke-width: 2; }
+      .flow { fill: #f2f5f8; stroke: #c8d2dc; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect width="1400" height="850" fill="#f7f9fc"/>
+  <text x="42" y="48" class="title">Comunicação BLE e rodada FedAvg</text>
+  <text x="42" y="78" class="subtitle">O PC coordena; cada MCU treina localmente. Os MCUs não trocam dados diretamente.</text>
+
+  <rect x="55" y="105" width="1290" height="150" rx="20" class="pc"/>
+  <text x="85" y="145" class="card-title">PC — COORDENADOR (fedppe_pc.py)</text>
+  <text x="85" y="177" class="body">BLE Central / cliente GATT</text>
+  <text x="85" y="212" class="small">Envia a cabeça global e comandos de treino; recebe cabeças locais e executa FedAvg.</text>
+  <line x1="85" y1="235" x2="120" y2="235" stroke="#2878b5" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <text x="135" y="240" class="small">PC → MCU: cabeça global + comando</text>
+  <line x1="510" y1="235" x2="475" y2="235" stroke="#34845c" stroke-width="3" marker-end="url(#arrow-green)"/>
+  <text x="525" y="240" class="small">MCU → PC: cabeça local + janelas + status</text>
+  <rect x="945" y="130" width="365" height="94" rx="14" fill="#ffffff" stroke="#b9d1e2"/>
+  <text x="970" y="165" class="body">Conexões sequenciais</text>
+  <text x="970" y="193" class="small">um MCU por vez; não simultâneas</text>
+
+  <path d="M250 255 L250 382" stroke="#2878b5" stroke-width="3" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M278 382 L278 255" stroke="#34845c" stroke-width="3" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M686 255 L686 382" stroke="#2878b5" stroke-width="3" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M714 382 L714 255" stroke="#34845c" stroke-width="3" fill="none" marker-end="url(#arrow-green)"/>
+  <path d="M1122 255 L1122 382" stroke="#2878b5" stroke-width="3" fill="none" marker-end="url(#arrow-blue)"/>
+  <path d="M1150 382 L1150 255" stroke="#34845c" stroke-width="3" fill="none" marker-end="url(#arrow-green)"/>
+
+  <rect x="55" y="385" width="390" height="285" rx="18" class="mcu"/>
+  <text x="80" y="425" class="card-title">MCU 1</text>
+  <text x="80" y="453" class="small">BLE Peripheral / servidor GATT</text>
+  <line x1="80" y1="472" x2="420" y2="472" stroke="#e5d7b8"/>
+  <text x="80" y="505" class="body">IMU: dados ficam locais</text>
+  <text x="80" y="535" class="body">32 leituras → 14 características</text>
+  <text x="80" y="565" class="body">Backbone fixo (404 parâmetros)</text>
+  <text x="80" y="595" class="body">Treina a cabeça local (27 parâmetros)</text>
+  <text x="80" y="637" class="small">Devolve cabeça e contador de janelas</text>
+
+  <rect x="505" y="385" width="390" height="285" rx="18" class="mcu"/>
+  <text x="530" y="425" class="card-title">MCU 2</text>
+  <text x="530" y="453" class="small">BLE Peripheral / servidor GATT</text>
+  <line x1="530" y1="472" x2="870" y2="472" stroke="#e5d7b8"/>
+  <text x="530" y="505" class="body">IMU: dados ficam locais</text>
+  <text x="530" y="535" class="body">32 leituras → 14 características</text>
+  <text x="530" y="565" class="body">Backbone fixo (404 parâmetros)</text>
+  <text x="530" y="595" class="body">Treina a cabeça local (27 parâmetros)</text>
+  <text x="530" y="637" class="small">Devolve cabeça e contador de janelas</text>
+
+  <rect x="955" y="385" width="390" height="285" rx="18" class="mcu"/>
+  <text x="980" y="425" class="card-title">MCU N</text>
+  <text x="980" y="453" class="small">BLE Peripheral / servidor GATT</text>
+  <line x1="980" y1="472" x2="1320" y2="472" stroke="#e5d7b8"/>
+  <text x="980" y="505" class="body">IMU: dados ficam locais</text>
+  <text x="980" y="535" class="body">32 leituras → 14 características</text>
+  <text x="980" y="565" class="body">Backbone fixo (404 parâmetros)</text>
+  <text x="980" y="595" class="body">Treina a cabeça local (27 parâmetros)</text>
+  <text x="980" y="637" class="small">Devolve cabeça e contador de janelas</text>
+
+  <rect x="55" y="700" width="1290" height="105" rx="18" class="flow"/>
+  <text x="82" y="739" class="card-title">Depois de terminar todos os MCUs:</text>
+  <text x="82" y="770" class="body">PC agrega as cabeças por FedAvg, salva fedppe_global_head.json e usa esse estado na próxima execução/rodada.</text>
+  <text x="82" y="793" class="small">São necessários 2 ou mais MCUs para uma média federada entre participantes distintos.</text>
+</svg>

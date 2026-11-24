@@ -298,6 +298,13 @@ GATT**. Não é uma conexão Wi-Fi, TCP/IP, MQTT ou comunicação pela nuvem.
 - **Topologia:** um PC coordena um ou mais MCUs. As conexões com vários MCUs
   são feitas **sequencialmente**, um dispositivo por vez, não em paralelo.
 
+![Diagrama da comunicação BLE entre o PC coordenador e os MCUs](./fedavg_ble_topology.svg)
+
+O PC envia a mesma cabeça global inicial a cada MCU, um por vez. Cada MCU
+treina localmente e devolve sua cabeça e o número de janelas usadas. Depois de
+receber os resultados de todos, o PC calcula o FedAvg e salva o estado para a
+próxima execução. Não há comunicação direta entre os MCUs.
+
 O serviço GATT do projeto tem UUID
 `f3641400-00b0-4240-ba50-05ca45bf8abc`. Ele contém estas características:
 
