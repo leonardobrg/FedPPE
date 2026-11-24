@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 650" role="img" aria-labelledby="title description">
+  <title id="title">Fluxo da janela IMU pela MLP FedPPE</title>
+  <desc id="description">Uma janela com 32 leituras e seis canais vira 14 características. Elas passam pelo backbone fixo 14 para 16 para 8 e pela cabeça treinável 8 para 3.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#43566b"/>
+    </marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #18324b; }
+      .title { font-size: 30px; font-weight: 700; }
+      .subtitle { font-size: 17px; fill: #52677d; }
+      .card-title { font-size: 19px; font-weight: 700; }
+      .body { font-size: 15px; }
+      .small { font-size: 13px; fill: #52677d; }
+      .node-title { font-size: 15px; font-weight: 700; }
+      .node-text { font-size: 14px; }
+      .arrow { stroke: #43566b; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .node { fill: #ffffff; stroke: #8ca2b6; stroke-width: 1.5; rx: 12; }
+    </style>
+  </defs>
+
+  <rect width="1500" height="650" fill="#f7f9fc"/>
+  <text id="title-text" x="36" y="48" class="title">Do sensor à classificação: MLP FedPPE</text>
+  <text x="36" y="78" class="subtitle">Amostra IMU → janela de treino → características → backbone → cabeça</text>
+
+  <rect x="30" y="120" width="205" height="340" rx="18" fill="#fff5df" stroke="#d6a948" stroke-width="2"/>
+  <text x="50" y="158" class="card-title">1. JANELA IMU</text>
+  <text x="50" y="192" class="body">32 amostras seguidas</text>
+  <text x="50" y="222" class="small">Cada amostra tem 6 valores:</text>
+  <rect x="48" y="238" width="169" height="38" rx="8" fill="#ffffff" stroke="#ead9ac"/>
+  <text x="60" y="263" class="node-text">x  y  z  x_g  y_g  z_g</text>
+  <text x="50" y="307" class="small">Exemplo da janela:</text>
+  <text x="58" y="333" class="body">linha 1: 6 leituras</text>
+  <text x="58" y="357" class="body">linha 2: 6 leituras</text>
+  <text x="58" y="381" class="body">... até linha 32</text>
+  <text x="50" y="420" class="small">≈ 40 ms por amostra</text>
+  <text x="50" y="441" class="small">≈ 1,28 s por janela</text>
+
+  <rect x="265" y="120" width="250" height="340" rx="18" fill="#f1edff" stroke="#8a78c4" stroke-width="2"/>
+  <text x="285" y="158" class="card-title">2. TRANSFORMAÇÃO</text>
+  <text x="285" y="193" class="body">7 características de</text>
+  <text x="285" y="216" class="body">acelerômetro + 7 de giroscópio</text>
+  <text x="285" y="253" class="small">Por sensor:</text>
+  <text x="295" y="280" class="node-text">• média e desvio da magnitude</text>
+  <text x="295" y="305" class="node-text">• média e desvio das diferenças</text>
+  <text x="295" y="330" class="node-text">• desvio padrão de x, y e z</text>
+  <rect x="285" y="360" width="210" height="61" rx="10" fill="#ffffff" stroke="#c9bee8"/>
+  <text x="300" y="386" class="node-title">Vetor de 14 valores</text>
+  <text x="300" y="408" class="small">estatísticas × 0,001</text>
+  <text x="285" y="445" class="small">Não entram 192 valores brutos</text>
+
+  <rect x="545" y="120" width="570" height="340" rx="18" fill="#eaf4fb" stroke="#4588b5" stroke-width="2.5"/>
+  <text x="565" y="158" class="card-title">3. BACKBONE FIXO NO MCU</text>
+  <text x="565" y="184" class="small">404 parâmetros, incluindo a normalização; congelado no treino federado</text>
+
+  <rect x="565" y="235" width="94" height="112" class="node"/>
+  <text x="612" y="269" text-anchor="middle" class="node-title">14</text>
+  <text x="612" y="294" text-anchor="middle" class="node-text">features</text>
+  <text x="612" y="321" text-anchor="middle" class="small">entrada</text>
+
+  <rect x="675" y="235" width="120" height="112" class="node"/>
+  <text x="735" y="269" text-anchor="middle" class="node-title">Normalização</text>
+  <text x="735" y="296" text-anchor="middle" class="node-text">(x − média)</text>
+  <text x="735" y="319" text-anchor="middle" class="node-text">× inv. desvio</text>
+
+  <rect x="811" y="235" width="112" height="112" class="node"/>
+  <text x="867" y="269" text-anchor="middle" class="node-title">Dense</text>
+  <text x="867" y="296" text-anchor="middle" class="node-text">14 → 16</text>
+  <text x="867" y="321" text-anchor="middle" class="node-text">ReLU</text>
+
+  <rect x="939" y="235" width="155" height="112" class="node"/>
+  <text x="1016" y="266" text-anchor="middle" class="node-title">Dense</text>
+  <text x="1016" y="291" text-anchor="middle" class="node-text">16 → 8 · ReLU</text>
+  <text x="1016" y="319" text-anchor="middle" class="small">embedding (8 valores)</text>
+
+  <path d="M659 291 L672 291" class="arrow"/>
+  <path d="M795 291 L808 291" class="arrow"/>
+  <path d="M923 291 L936 291" class="arrow"/>
+
+  <rect x="1145" y="120" width="325" height="340" rx="18" fill="#eaf7ef" stroke="#438a60" stroke-width="2.5"/>
+  <text x="1165" y="158" class="card-title">4. CABEÇA TREINÁVEL</text>
+  <text x="1165" y="184" class="small">27 parâmetros: 24 pesos + 3 biases</text>
+
+  <rect x="1165" y="235" width="128" height="112" class="node"/>
+  <text x="1229" y="269" text-anchor="middle" class="node-title">Dense</text>
+  <text x="1229" y="296" text-anchor="middle" class="node-text">8 → 3</text>
+  <text x="1229" y="321" text-anchor="middle" class="small">3 logits</text>
+
+  <rect x="1310" y="235" width="138" height="112" class="node"/>
+  <text x="1379" y="273" text-anchor="middle" class="node-title">Softmax</text>
+  <text x="1379" y="301" text-anchor="middle" class="node-text">3 probabilidades</text>
+  <text x="1379" y="327" text-anchor="middle" class="small">soma = 1</text>
+
+  <path d="M1095 291 L1142 291" class="arrow"/>
+  <path d="M1293 291 L1307 291" class="arrow"/>
+  <text x="1167" y="381" class="body">parado · carregando · vestindo</text>
+  <text x="1167" y="417" class="small">A saída mais provável é a classe prevista</text>
+
+  <rect x="30" y="490" width="1440" height="125" rx="18" fill="#ffffff" stroke="#c8d2dc" stroke-width="1.5"/>
+  <line x1="750" y1="510" x2="750" y2="595" stroke="#d6dee6" stroke-width="1.5"/>
+  <text x="55" y="528" class="card-title">PRÉ-TREINO CENTRALIZADO (PC)</text>
+  <text x="55" y="557" class="body">Python treina o MLP inteiro com os CSVs:</text>
+  <text x="55" y="582" class="body">backbone + cabeça inicial.</text>
+  <text x="785" y="528" class="card-title">RODADA FEDERADA</text>
+  <text x="785" y="557" class="body">Cada MCU ajusta só a cabeça; o PC agrega os 27 parâmetros</text>
+  <text x="785" y="582" class="body">com FedAvg. Leituras e características ficam no MCU.</text>
+</svg>
