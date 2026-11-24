@@ -463,3 +463,88 @@ dois ou mais endereços para testar a agregação entre participantes BLE.
 - O backbone é treinado inicialmente no PC, mas fica congelado no MCU. O
   aprendizado local e a atualização federada modificam somente os 27
   parâmetros da cabeça.
+
+## 11. Roteiro de primeira execução no Windows
+
+Este roteiro parte de um checkout do projeto com os CSVs em `data` e um kit
+Silicon Labs com BLE. Execute os comandos no PowerShell, na ordem abaixo.
+Requer Python 3, CMake e as ferramentas de compilação configuradas pelo
+Simplicity Studio 6. Se o projeto estiver em outra pasta, ajuste o caminho do
+comando `Set-Location`.
+
+### 1. Preparar o ambiente Python
+
+```powershell
+Set-Location -LiteralPath 'C:\Users\leo-computador\SimplicityStudio\v6_workspace\tcc_001'
+py --version
+py -m venv .venv
+.\.venv\Scripts\python.exe -m pip install bleak
+```
+
+O treino inicial usa apenas a biblioteca padrão do Python. `bleak` é
+necessário para o teste de eco e o FedAvg por BLE. Os comandos seguintes usam
+o Python deste ambiente virtual, sem precisar ativá-lo.
+
+### 2. Treinar o modelo e exportar o backbone
+
+```powershell
+.\.venv\Scripts\python.exe fedppe_pc.py train-backbone --dataset data --ppe Helmet --epochs 30 --learning-rate 0.01 --seed 7 --output fedppe_mlp.json
+.\.venv\Scripts\python.exe fedppe_pc.py export-backbone --model fedppe_mlp.json --output fedppe_backbone.h
+```
+
+Ao terminar, `fedppe_mlp.json` contém o modelo treinado e
+`fedppe_backbone.h` contém o backbone que será compilado no firmware. O
+cabeçalho deve permanecer na raiz do projeto, onde `fedppe_mcu.c` o inclui.
+
+### 3. Compilar o firmware
+
+```powershell
+Push-Location .\cmake_gcc
+cmake --preset project
+if ($LASTEXITCODE -ne 0) { throw 'Falha ao configurar o firmware.' }
+cmake --build --preset default_config
+if ($LASTEXITCODE -ne 0) { throw 'Falha ao compilar o firmware.' }
+Pop-Location
+```
+
+O arquivo gerado é `cmake_gcc\build\base\tcc_001.hex`. Para gravá-lo, conecte
+o kit, abra `aiml_soc_magic_wand_baremetal.slcp` no Simplicity Studio 6 e
+programe o MCU com esse arquivo. Selecione o kit/dispositivo conectado no
+Studio; essa seleção depende do hardware. Reinicie o MCU e confirme que ele
+anuncia `TCC001-BLE`.
+
+### 4. Testar a comunicação BLE
+
+Com o MCU ligado e anunciando, execute:
+
+```powershell
+.\.venv\Scripts\python.exe fedppe_ble_test.py
+```
+
+O resultado esperado começa com `PASS`. Se o teste não encontrar o dispositivo,
+confirme que o Windows reconhece o dongle como adaptador Bluetooth Low Energy
+e que o firmware está anunciando `TCC001-BLE`.
+
+### 5. Executar a primeira rodada ponta a ponta
+
+Com um MCU, execute:
+
+```powershell
+.\.venv\Scripts\python.exe fedppe_pc.py ble-fedavg --windows-per-class 10 --model fedppe_mlp.json --state tcc001_primeira_rodada.json
+```
+
+Quando o programa solicitar, prepare o MCU para a classe indicada e pressione
+Enter. Repita para `parado`, `carregando` e `vestindo`. Ao final, o estado
+agregado será salvo em `tcc001_primeira_rodada.json`. Um MCU valida o fluxo
+completo, mas não demonstra a média entre participantes distintos.
+
+Para fazer a agregação entre dois ou mais MCUs, informe os endereços BLE reais:
+
+```powershell
+.\.venv\Scripts\python.exe fedppe_pc.py ble-fedavg --addresses "AA:BB:CC:DD:EE:FF" "11:22:33:44:55:66" --windows-per-class 10 --model fedppe_mlp.json --state tcc001_primeira_rodada.json
+```
+
+Substitua os endereços de exemplo pelos endereços dos seus dispositivos. O PC
+conecta-se a cada MCU sequencialmente. Para iniciar um experimento novo, use
+um nome de arquivo ainda não existente em `--state`; para continuar a partir
+da cabeça global já agregada, reutilize o mesmo arquivo.
