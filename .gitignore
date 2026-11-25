@@ -1,0 +1,59 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Machine-specific IDE settings
+.vscode/
+.idea/
+.metadata/
+.settings/
+.launches/
+
+# Simplicity Studio generated CMake files contain local SDK paths.
+# Regenerate them from the .slcp project on each machine.
+/cmake_gcc/aiml_soc_magic_wand_baremetal.cmake
+/cmake_gcc/aiml_soc_magic_wand_baremetal_project.cmake
+
+# CMake and Ninja build output
+**/build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+build.ninja
+.ninja_deps
+.ninja_log
+
+# Compiled artifacts
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.exe
+*.elf
+*.lst
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+.flaskenv
+.envrc
+.direnv/

@@ -468,9 +468,10 @@ dois ou mais endereços para testar a agregação entre participantes BLE.
 
 Este roteiro parte de um checkout do projeto com os CSVs em `data` e um kit
 Silicon Labs com BLE. Execute os comandos no PowerShell, na ordem abaixo.
-Requer Python 3, CMake e as ferramentas de compilação configuradas pelo
-Simplicity Studio 6. Se o projeto estiver em outra pasta, ajuste o caminho do
-comando `Set-Location`.
+Requer Python 3 e o Simplicity Studio 6 com a extensão Silicon Labs
+configurada para este projeto. Antes do build, instale pelo Studio as
+ferramentas CMake, Ninja, GNU ARM toolchain e Simplicity Commander. Se o
+projeto estiver em outra pasta, ajuste o caminho do comando `Set-Location`.
 
 ### 1. Preparar o ambiente Python
 
@@ -509,9 +510,10 @@ Pop-Location
 
 O arquivo gerado é `cmake_gcc\build\base\tcc_001.hex`. Para gravá-lo, conecte
 o kit, abra `aiml_soc_magic_wand_baremetal.slcp` no Simplicity Studio 6 e
-programe o MCU com esse arquivo. Selecione o kit/dispositivo conectado no
-Studio; essa seleção depende do hardware. Reinicie o MCU e confirme que ele
-anuncia `TCC001-BLE`.
+regenere o projeto nessa máquina para criar os arquivos CMake com os caminhos
+locais do SDK. Depois, programe o MCU com o arquivo. Selecione o kit/dispositivo
+conectado no Studio; essa seleção depende do hardware. Reinicie o MCU e
+confirme que ele anuncia `TCC001-BLE`.
 
 ### 4. Testar a comunicação BLE
 
